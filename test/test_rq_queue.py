@@ -21,7 +21,7 @@
 #
 
 #from sos.sos_script import SoS_Script
-from sos.target import FileTarget
+from sos.target import file_target
 from sos.sos_script import SoS_Script
 from sos.sos_executor import Base_Executor
 
@@ -72,7 +72,7 @@ run:
                 'default_queue': 'local_rq',
                 'sig_mode': 'force',
                 }).run()
-        self.assertTrue(FileTarget('result_rq.txt').exists())
+        self.assertTrue(file_target('result_rq.txt').exists())
         with open('result_rq.txt') as res:
             self.assertEqual(res.read(), 'rq\n')
 

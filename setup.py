@@ -55,11 +55,11 @@ setup(name = "sos-rq",
     packages = find_packages('src'),
     package_dir = {'': 'src'},
     install_requires=[
-          'sos>=0.9.10.1',
+          'sos>=0.9.10.10',
           'rq',
       ],
     entry_points= '''
 [sos_taskengines]
-rq = sos_rq.sos_task:RQ_TaskEngine
+rq = sos_rq.tasks:RQ_TaskEngine
 '''
 )

@@ -20,10 +20,9 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-#from sos.parser import SoS_Script
-from sos.targets import FileTarget
 from sos.parser import SoS_Script
 from sos.workflow_executor import Base_Executor
+from sos.targets import file_target
 
 import os
 import unittest
@@ -72,7 +71,7 @@ run:
                 'default_queue': 'local_rq',
                 'sig_mode': 'force',
                 }).run()
-        self.assertTrue(FileTarget('result_rq.txt').exists())
+        self.assertTrue(file_target('result_rq.txt').exists())
         with open('result_rq.txt') as res:
             self.assertEqual(res.read(), 'rq\n')
 

@@ -20,10 +20,10 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-#from sos.sos_script import SoS_Script
-from sos.target import FileTarget
-from sos.sos_script import SoS_Script
-from sos.sos_executor import Base_Executor
+#from sos.parser import SoS_Script
+from sos.targets import FileTarget
+from sos.parser import SoS_Script
+from sos.workflow_executor import Base_Executor
 
 import os
 import unittest

@@ -24,8 +24,8 @@ import os
 from sos.utils import env
 from rq import Queue as rqQueue
 from redis import Redis
-from sos.sos_task import TaskEngine, execute_task, loadTask
-from sos.sos_eval import cfg_interpolate
+from sos.tasks import TaskEngine, execute_task, loadTask
+from sos.eval import cfg_interpolate
 
 class RQ_TaskEngine(TaskEngine):
 

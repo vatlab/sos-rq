@@ -29,11 +29,23 @@ class RQ_TaskEngine(TaskEngine):
         self.redis_queue = rqQueue(self.redis_queue, connection=redis_conn)
         self.jobs = {}
 
-    def execute_task(self, task_id):
+    def execute_tasks(self, task_ids):
         #
-        if not super(RQ_TaskEngine, self).execute_task(task_id):
+        if not super(RQ_TaskEngine, self).execute_tasks(task_ids):
             return False
 
+        try:
+            for task_id in task_ids:
+                if not self._prepare_script(task_id):
+                    return False
+            return True
+        except Exception as e:
+            env.logger.error(e)
+            return False
+
+
+    def _prepare_script(self, task_id):
+        #
         task_file = os.path.join(os.path.expanduser('~'), '.sos', 'tasks', task_id + '.task')
         sos_dict = loadTask(task_file).sos_dict
 

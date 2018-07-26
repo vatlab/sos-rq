@@ -38,7 +38,7 @@ setup(name = "sos-rq",
     packages = find_packages('src'),
     package_dir = {'': 'src'},
     install_requires=[
-          'sos>=0.9.15.2',
+          'sos>=0.9.16.0',
           'rq',
       ],
     entry_points= '''

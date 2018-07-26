@@ -7,7 +7,9 @@ import os
 from sos.utils import env
 from rq import Queue as rqQueue
 from redis import Redis
-from sos.tasks import TaskEngine, execute_task, TaskFile
+from sos.tasks import TaskFile
+from sos.task_engines import TaskEngine
+from sos.task_executor import execute_task
 from sos.eval import cfg_interpolate
 
 class RQ_TaskEngine(TaskEngine):

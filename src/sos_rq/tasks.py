@@ -7,7 +7,7 @@ import os
 from sos.utils import env
 from rq import Queue as rqQueue
 from redis import Redis
-from sos.tasks import TaskEngine, execute_task, loadTask
+from sos.tasks import TaskEngine, execute_task, TaskFile
 from sos.eval import cfg_interpolate
 
 class RQ_TaskEngine(TaskEngine):
@@ -47,7 +47,7 @@ class RQ_TaskEngine(TaskEngine):
     def _prepare_script(self, task_id):
         #
         task_file = os.path.join(os.path.expanduser('~'), '.sos', 'tasks', task_id + '.task')
-        sos_dict = loadTask(task_file).sos_dict
+        sos_dict = TaskFile(task_file).params.sos_dict
 
         # however, these could be fixed in the job template and we do not need to have them all in the runtime
         runtime = self.config

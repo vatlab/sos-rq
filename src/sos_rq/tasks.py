@@ -48,8 +48,7 @@ class RQ_TaskEngine(TaskEngine):
 
     def _prepare_script(self, task_id):
         #
-        task_file = os.path.join(os.path.expanduser('~'), '.sos', 'tasks', task_id + '.task')
-        sos_dict = TaskFile(task_file).params.sos_dict
+        sos_dict = TaskFile(task_id).params.sos_dict
 
         # however, these could be fixed in the job template and we do not need to have them all in the runtime
         runtime = self.config

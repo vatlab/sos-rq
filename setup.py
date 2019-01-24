@@ -25,7 +25,7 @@ setup(name = "sos-rq",
     classifiers = [
         'Development Status :: 4 - Beta',
         'Environment :: Console',
-        'License :: OSI Approved :: BSD',
+        'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Operating System :: POSIX :: Linux',
         'Operating System :: MacOS :: MacOS X',
@@ -38,7 +38,7 @@ setup(name = "sos-rq",
     packages = find_packages('src'),
     package_dir = {'': 'src'},
     install_requires=[
-          'sos>=0.17.4',
+          'sos>=0.18.0',
           'rq',
       ],
     entry_points= '''
